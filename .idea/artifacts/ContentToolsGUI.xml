@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="jpackage" name="ContentToolsGUI">
+    <output-path>$PROJECT_DIR$/out/artifacts/ContentToolsGUI</output-path>
+    <properties id="jpackage-properties">
+      <options>
+        <option name="version" value="" />
+        <option name="copyright" value="" />
+        <option name="description" value="" />
+        <option name="vendor" value="" />
+        <option name="mainClass" value="com.corrinedev.contenttoolsgui.Main" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="ContentToolsGUI.jar">
+        <element id="module-output" name="ContentToolsGUI" />
+      </element>
+    </root>
+  </artifact>
+</component>
