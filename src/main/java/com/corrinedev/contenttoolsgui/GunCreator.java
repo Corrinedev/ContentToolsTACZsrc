@@ -28,7 +28,7 @@ public class GunCreator {
                 try {
                     if (!(nameinput == null)) {
                         Files.createDirectory(Path.of(directory + "/sounds" + "/" + nameinput));
-                        String template = JOptionPane.showInputDialog(null, "What template would you like to use? (rifle, shotgun, pistol, ");
+                        String template = JOptionPane.showInputDialog(null, "What template would you like to use? (rifle, shotgun, pistol, bolt_action) ");
                         switch(template) {
                             case "pistol":
                                 Files.createFile(Path.of(directory + "/guns/data/" + nameinput + "_data.json"));
@@ -352,8 +352,404 @@ public class GunCreator {
                                         "  }\n" +
                                         "}");
                                 break;
-                            case "shotgun":
+                            case "bolt_action":
+                                Files.createFile(Path.of(directory + "/guns/data/" + nameinput + "_data.json"));
+                                Files.writeString(Path.of(directory + "/guns/data/" + nameinput + "_data.json"), "{\n" +
+                                        "  \"ammo\": \"tacz:338\",\n" +
+                                        "  \"ammo_amount\": 5,\n" +
+                                        "  \"extended_mag_ammo_amount\": [\n" +
+                                        "    6,\n" +
+                                        "    8,\n" +
+                                        "    10\n" +
+                                        "  ],\n" +
+                                        "  \"bolt\": \"manual_action\",\n" +
+                                        "  \"rpm\": 171,\n" +
+                                        "  \"bullet\": {\n" +
+                                        "    \"life\": 0.9,\n" +
+                                        "    \"bullet_amount\": 1,\n" +
+                                        "    \"damage\": 42,\n" +
+                                        "    \"tracer_count_interval\": 0,\n" +
+                                        "    \"extra_damage\": {\n" +
+                                        "      \"armor_ignore\": 0.50,\n" +
+                                        "      \"head_shot_multiplier\": 2,\n" +
+                                        "      \"damage_adjust\": [\n" +
+                                        "        {\"distance\": 80, \"damage\": 42},\n" +
+                                        "        {\"distance\": 160, \"damage\": 36},\n" +
+                                        "        {\"distance\": \"infinite\", \"damage\": 26}\n" +
+                                        "      ]\n" +
+                                        "    },\n" +
+                                        "    \"speed\": 450,\n" +
+                                        "    \"gravity\": 0.098,\n" +
+                                        "    \"knockback\": 0,\n" +
+                                        "    \"friction\": 0.015,\n" +
+                                        "    \"ignite\": false,\n" +
+                                        "    \"pierce\": 4\n" +
+                                        "  },\n" +
+                                        "  \"reload\": {\n" +
+                                        "    \"type\": \"magazine\",\n" +
+                                        "    \"feed\": {\n" +
+                                        "      \"empty\": 2.85,\n" +
+                                        "      \"tactical\": 2.05\n" +
+                                        "    },\n" +
+                                        "    \"cooldown\": {\n" +
+                                        "      \"empty\": 3.25,\n" +
+                                        "      \"tactical\": 2.25\n" +
+                                        "    }\n" +
+                                        "  },\n" +
+                                        "  \"draw_time\": 0.35,\n" +
+                                        "  \"put_away_time\": 0.75,\n" +
+                                        "  \"aim_time\": 0.25,\n" +
+                                        "  \"sprint_time\": 0.2,\n" +
+                                        "  \"bolt_action_time\": 0.9,\n" +
+                                        "  \"fire_mode\": [\n" +
+                                        "    \"semi\"\n" +
+                                        "  ],\n" +
+                                        "  \"recoil\": {\n" +
+                                        "    \"pitch\": [\n" +
+                                        "      {\"time\": 0, \"value\": [2.2, 2.2]},\n" +
+                                        "      {\"time\": 0.32, \"value\": [2.2, 2.2]},\n" +
+                                        "      {\"time\": 0.57, \"value\": [-0.5, -0.5]},\n" +
+                                        "      {\"time\": 0.82, \"value\": [0.25, 0.25]},\n" +
+                                        "      {\"time\": 1.17, \"value\": [0, 0]},\n" +
+                                        "      {\"time\": 1.47, \"value\": [0, 0]}\n" +
+                                        "    ],\n" +
+                                        "    \"yaw\": [\n" +
+                                        "      {\"time\": 0, \"value\": [-0.6, -0.5]},\n" +
+                                        "      {\"time\": 0.32, \"value\": [-0.6, -0.5]},\n" +
+                                        "      {\"time\": 0.57, \"value\": [0, 0]}\n" +
+                                        "    ]\n" +
+                                        "  },\n" +
+                                        "  \"inaccuracy\": {\n" +
+                                        "    \"stand\": 8.5,\n" +
+                                        "    \"move\": 11,\n" +
+                                        "    \"sneak\": 6.5,\n" +
+                                        "    \"lie\": 4.5,\n" +
+                                        "    \"aim\": 0.05\n" +
+                                        "  },\n" +
+                                        "\n" +
+                                        "  \"melee\": {\n" +
+                                        "\n" +
+                                        "    \"distance\": 1,\n" +
+                                        "\n" +
+                                        "    \"cooldown\": 1.0,\n" +
+                                        "\n" +
+                                        "    \"default\": {\n" +
+                                        "\n" +
+                                        "      \"animation_type\": \"melee_stock\",\n" +
+                                        "\n" +
+                                        "      \"distance\": 0,\n" +
+                                        "\n" +
+                                        "      \"range_angle\": 30,\n" +
+                                        "\n" +
+                                        "      \"damage\": 2,\n" +
+                                        "   \n" +
+                                        "      \"knockback\": 0.75,\n" +
+                                        "\n" +
+                                        "      \"prep\": 0.1\n" +
+                                        "    }\n" +
+                                        "  },\n" +
+                                        "  \"allow_attachment_types\": [\n" +
+                                        "    \"extended_mag\",\n" +
+                                        "    \"scope\",\n" +
+                                        "    \"muzzle\"\n" +
+                                        "  ]\n" +
+                                        "}");
+                                Files.createFile(Path.of(directory + "/guns/display/" + nameinput + "_display.json"));
+                                Files.createFile(Path.of(directory + "/guns/index/" + nameinput + ".json"));
 
+                                Files.writeString(Path.of(directory + "/guns/index/" + nameinput + ".json"), "{\n" +
+                                        "  \"name\": \"" + packid + ".gun." + nameinput + ".name\",\n" +
+                                        "  \"display\": \"" + packid + ":" + nameinput + "_display\",\n" +
+                                        "  \"data\": \"" + packid + ":" + nameinput + "_data\",\n" +
+                                        "  \"tooltip\": \"" + packid + ".gun." + nameinput + ".desc\",\n" +
+                                        "  \"type\": \"place the type of gun here(pistol, rifle, sniper, shotgun, etc)\"\n" +
+                                        "}");
+
+                                Files.writeString(Path.of(directory + "/guns/display/" + nameinput + "_display.json"), "{\n" +
+                                        "  \"model\": \"" + packid + ":gun/" + nameinput + "_geo\",\n" +
+                                        "  \"texture\": \"" + packid + ":gun/uv/" + nameinput + "\",\n" +
+                                        "  \"lod\": {\n" +
+                                        "    \"model\": \"" + packid + ":gun/lod/" + nameinput + "\",\n" +
+                                        "    \"texture\": \"" + packid + ":gun/lod/" + nameinput + "\"\n" +
+                                        "  },\n" +
+                                        "  \"hud\": \"" + packid + ":gun/hud/" + nameinput + "\",\n" +
+                                        "  \"slot\": \"" + packid + ":gun/slot/" + nameinput + "\",\n" +
+                                        "  \"animation\": \"" + packid + ":" + nameinput + "\",\n" +
+                                        "  \"use_default_animation\": \"rifle\",\n" +
+                                        "  \"transform\": {\n" +
+                                        "    \"scale\": {\n" +
+                                        "      \"thirdperson\": [0.6, 0.6, 0.6],\n" +
+                                        "      \"ground\": [0.6, 0.6, 0.6],\n" +
+                                        "      \"fixed\": [1.2, 1.2, 1.2]\n" +
+                                        "    }\n" +
+                                        "  },\n" +
+                                        "  \"muzzle_flash\": {\n" +
+                                        "    \"texture\": \"tacz:flash/common_muzzle_flash\",\n" +
+                                        "    \"scale\": 1\n" +
+                                        "  },\n" +
+                                        "  \"sounds\": {\n" +
+                                        "    \"reload_empty\": \"" + packid + ":" + nameinput + "/" + nameinput + "_reload_empty\",\n" +
+                                        "    \"reload_tactical\": \"" + packid + ":" + nameinput + "/" + nameinput + "_reload_tactical\",\n" +
+                                        "    \"inspect\": \"" + packid + ":" + nameinput + "/" + nameinput + "_inspect\",\n" +
+                                        "    \"inspect_empty\": \"" + packid + ":" + nameinput + "/" + nameinput + "_inspect_empty\",\n" +
+                                        "    \"draw\": \"" + packid + ":" + nameinput + "/" + nameinput + "_draw\",\n" +
+                                        "    \"shoot\": \"" + packid + ":" + nameinput + "/" + nameinput + "shoot\",\n" +
+                                        "    \"shoot_3p\": \"" + packid + ":" + nameinput + "/" + nameinput + "_shoot_3p\",\n" +
+                                        "    \"silence\": \"" + packid + ":" + nameinput + "/" + nameinput + "_silence\",\n" +
+                                        "    \"silence_3p\": \"" + packid + ":" + nameinput + "/" + nameinput + "_silence_3p\",\n" +
+                                        "    \"put_away\": \"" + packid + ":" + nameinput + "/" + nameinput + "_put_away\",\n" +
+                                        "    \"melee_push\": \"" + packid + "melee_stock/melee_stock_02\",\n" +
+                                        "    \"melee_stock\": \"" + packid + "melee_stock/melee_stock_03\"\n" +
+                                        "  },\n" +
+                                        "  \"offhand_show\": {\n" +
+                                        "    \"pos\": [-2, 20, 4],\n" +
+                                        "    \"rotate\": [0, 0, 45],\n" +
+                                        "    \"scale\": [0.5, 0.5, 0.5]\n" +
+                                        "  },\n" +
+                                        "  \"hotbar_show\": {\n" +
+                                        "    \"0\": {\n" +
+                                        "      \"pos\": [-4, 26, 3],\n" +
+                                        "      \"rotate\": [-90, -5, -90],\n" +
+                                        "      \"scale\": [0.5, 0.5, 0.5]\n" +
+                                        "    }\n" +
+                                        "  }\n" +
+                                        "}");
+
+                                break;
+                            case "shotgun":
+                                Files.createFile(Path.of(directory + "/guns/data/" + nameinput + "_data.json"));
+                                Files.writeString(Path.of(directory + "/guns/data/" + nameinput + "_data.json"), "{\n" +
+                                        "\n" +
+                                        "  \"ammo\": \"tacz:12g\",\n" +
+                                        "\n" +
+                                        "  \"ammo_amount\": 7,\n" +
+                                        "\n" +
+                                        "  \"extended_mag_ammo_amount\": [\n" +
+                                        "    12,\n" +
+                                        "    15,\n" +
+                                        "    20\n" +
+                                        "  ],\n" +
+                                        "\n" +
+                                        "  \"bolt\": \"closed_bolt\",\n" +
+                                        "\n" +
+                                        "  \"rpm\": 300,\n" +
+                                        "\n" +
+                                        "  \"bullet\": {\n" +
+                                        "\n" +
+                                        "    \"life\": 0.8,\n" +
+                                        "\n" +
+                                        "    \"bullet_amount\": 12,\n" +
+                                        "\n" +
+                                        "    \"damage\": 36.0,\n" +
+                                        "\n" +
+                                        "    \"tracer_count_interval\": 0,\n" +
+                                        "\n" +
+                                        "    \"extra_damage\": {\n" +
+                                        "\n" +
+                                        "      \"armor_ignore\": 0,\n" +
+                                        "\n" +
+                                        "      \"head_shot_multiplier\": 1.75,\n" +
+                                        "\n" +
+                                        "      \"damage_adjust\": [\n" +
+                                        "\n" +
+                                        "        {\n" +
+                                        "          \"distance\": 0.5,\n" +
+                                        "          \"damage\": 60\n" +
+                                        "        },\n" +
+                                        "        {\n" +
+                                        "          \"distance\": 14,\n" +
+                                        "          \"damage\": 36\n" +
+                                        "        },\n" +
+                                        "        {\n" +
+                                        "          \"distance\": 30,\n" +
+                                        "          \"damage\": 15\n" +
+                                        "        },\n" +
+                                        "        {\n" +
+                                        "          \"distance\": 50,\n" +
+                                        "          \"damage\": 6.5\n" +
+                                        "        },\n" +
+                                        "\n" +
+                                        "        {\n" +
+                                        "          \"distance\": \"infinite\",\n" +
+                                        "          \"damage\": 5.5\n" +
+                                        "        }\n" +
+                                        "      ]\n" +
+                                        "    },\n" +
+                                        "\n" +
+                                        "    \"speed\": 240,\n" +
+                                        "  \n" +
+                                        "    \"gravity\": 0.0245,\n" +
+                                        "\n" +
+                                        "    \"knockback\": 0,\n" +
+                                        "\n" +
+                                        "    \"friction\": 0.01,\n" +
+                                        "\n" +
+                                        "    \"ignite\": false,\n" +
+                                        "\n" +
+                                        "    \"pierce\": 1\n" +
+                                        "  },\n" +
+                                        "\n" +
+                                        "  \"reload\": {\n" +
+                                        "\n" +
+                                        "    \"type\": \"magazine\",\n" +
+                                        "   \n" +
+                                        "    \"feed\": {\n" +
+                                        "      \"empty\": 2.25,\n" +
+                                        "      \"tactical\": 1.55\n" +
+                                        "    },\n" +
+                                        "    \"cooldown\": {\n" +
+                                        "      \"empty\": 2.6,\n" +
+                                        "      \"tactical\": 2.0\n" +
+                                        "    }\n" +
+                                        "  },\n" +
+                                        "  \"draw_time\": 0.35,\n" +
+                                        "  \"put_away_time\": 0.4,\n" +
+                                        "  \"aim_time\": 0.1,\n" +
+                                        "  \"sprint_time\": 0.3,\n" +
+                                        "  \"fire_mode\": [\n" +
+                                        "    \"semi\"\n" +
+                                        "  ],\n" +
+                                        "  \"recoil\": {\n" +
+                                        "    \"pitch\": [\n" +
+                                        "      {\n" +
+                                        "        \"time\": 0,\n" +
+                                        "        \"value\": [\n" +
+                                        "          1.25,\n" +
+                                        "          1.25\n" +
+                                        "        ]\n" +
+                                        "      },\n" +
+                                        "      {\n" +
+                                        "        \"time\": 0.3,\n" +
+                                        "        \"value\": [\n" +
+                                        "          1.25,\n" +
+                                        "          1.25\n" +
+                                        "        ]\n" +
+                                        "      },\n" +
+                                        "      {\n" +
+                                        "        \"time\": 0.55,\n" +
+                                        "        \"value\": [\n" +
+                                        "          -0.225,\n" +
+                                        "          -0.225\n" +
+                                        "        ]\n" +
+                                        "      },\n" +
+                                        "      {\n" +
+                                        "        \"time\": 0.7,\n" +
+                                        "        \"value\": [\n" +
+                                        "          0,\n" +
+                                        "          0\n" +
+                                        "        ]\n" +
+                                        "      },\n" +
+                                        "      {\n" +
+                                        "        \"time\": 0.8,\n" +
+                                        "        \"value\": [\n" +
+                                        "          0,\n" +
+                                        "          0\n" +
+                                        "        ]\n" +
+                                        "      }\n" +
+                                        "    ],\n" +
+                                        "    \"yaw\": [\n" +
+                                        "      {\n" +
+                                        "        \"time\": 0,\n" +
+                                        "        \"value\": [\n" +
+                                        "          -0.35,\n" +
+                                        "          -0.2\n" +
+                                        "        ]\n" +
+                                        "      },\n" +
+                                        "      {\n" +
+                                        "        \"time\": 0.45,\n" +
+                                        "        \"value\": [\n" +
+                                        "          -0.35,\n" +
+                                        "          -0.2\n" +
+                                        "        ]\n" +
+                                        "      },\n" +
+                                        "      {\n" +
+                                        "        \"time\": 0.7,\n" +
+                                        "        \"value\": [\n" +
+                                        "          0,\n" +
+                                        "          0\n" +
+                                        "        ]\n" +
+                                        "      }\n" +
+                                        "    ]\n" +
+                                        "  },\n" +
+                                        "  \"inaccuracy\": {\n" +
+                                        "    \"stand\": 4,\n" +
+                                        "    \"move\": 4.75,\n" +
+                                        "    \"sneak\": 3,\n" +
+                                        "    \"lie\": 3,\n" +
+                                        "\n" +
+                                        "    \"aim\": 3\n" +
+                                        "  },\n" +
+                                        "\n" +
+                                        "  \"allow_attachment_types\": [\n" +
+                                        "    \"scope\",\n" +
+                                        "    \"grip\",\n" +
+                                        "    \"stock\",\n" +
+                                        "    \"muzzle\",\n" +
+                                        "    \"extended_mag\"\n" +
+                                        "  ],\n" +
+                                        "  \"exclusive_attachments\": {}\n" +
+                                        "}");
+                                Files.createFile(Path.of(directory + "/guns/display/" + nameinput + "_display.json"));
+                                Files.createFile(Path.of(directory + "/guns/index/" + nameinput + ".json"));
+
+                                Files.writeString(Path.of(directory + "/guns/index/" + nameinput + ".json"), "{\n" +
+                                        "  \"name\": \"" + packid + ".gun." + nameinput + ".name\",\n" +
+                                        "  \"display\": \"" + packid + ":" + nameinput + "_display\",\n" +
+                                        "  \"data\": \"" + packid + ":" + nameinput + "_data\",\n" +
+                                        "  \"tooltip\": \"" + packid + ".gun." + nameinput + ".desc\",\n" +
+                                        "  \"type\": \"place the type of gun here(pistol, rifle, sniper, shotgun, etc)\"\n" +
+                                        "}");
+
+                                Files.writeString(Path.of(directory + "/guns/display/" + nameinput + "_display.json"), "{\n" +
+                                        "  \"model\": \"" + packid + ":gun/" + nameinput + "_geo\",\n" +
+                                        "  \"texture\": \"" + packid + ":gun/uv/" + nameinput + "\",\n" +
+                                        "  \"lod\": {\n" +
+                                        "    \"model\": \"" + packid + ":gun/lod/" + nameinput + "\",\n" +
+                                        "    \"texture\": \"" + packid + ":gun/lod/" + nameinput + "\"\n" +
+                                        "  },\n" +
+                                        "  \"hud\": \"" + packid + ":gun/hud/" + nameinput + "\",\n" +
+                                        "  \"slot\": \"" + packid + ":gun/slot/" + nameinput + "\",\n" +
+                                        "  \"animation\": \"" + packid + ":" + nameinput + "\",\n" +
+                                        "  \"use_default_animation\": \"rifle\",\n" +
+                                        "  \"transform\": {\n" +
+                                        "    \"scale\": {\n" +
+                                        "      \"thirdperson\": [0.6, 0.6, 0.6],\n" +
+                                        "      \"ground\": [0.6, 0.6, 0.6],\n" +
+                                        "      \"fixed\": [1.2, 1.2, 1.2]\n" +
+                                        "    }\n" +
+                                        "  },\n" +
+                                        "  \"muzzle_flash\": {\n" +
+                                        "    \"texture\": \"tacz:flash/common_muzzle_flash\",\n" +
+                                        "    \"scale\": 1\n" +
+                                        "  },\n" +
+                                        "  \"sounds\": {\n" +
+                                        "    \"reload_empty\": \"" + packid + ":" + nameinput + "/" + nameinput + "_reload_empty\",\n" +
+                                        "    \"reload_tactical\": \"" + packid + ":" + nameinput + "/" + nameinput + "_reload_tactical\",\n" +
+                                        "    \"inspect\": \"" + packid + ":" + nameinput + "/" + nameinput + "_inspect\",\n" +
+                                        "    \"inspect_empty\": \"" + packid + ":" + nameinput + "/" + nameinput + "_inspect_empty\",\n" +
+                                        "    \"draw\": \"" + packid + ":" + nameinput + "/" + nameinput + "_draw\",\n" +
+                                        "    \"shoot\": \"" + packid + ":" + nameinput + "/" + nameinput + "shoot\",\n" +
+                                        "    \"shoot_3p\": \"" + packid + ":" + nameinput + "/" + nameinput + "_shoot_3p\",\n" +
+                                        "    \"silence\": \"" + packid + ":" + nameinput + "/" + nameinput + "_silence\",\n" +
+                                        "    \"silence_3p\": \"" + packid + ":" + nameinput + "/" + nameinput + "_silence_3p\",\n" +
+                                        "    \"put_away\": \"" + packid + ":" + nameinput + "/" + nameinput + "_put_away\",\n" +
+                                        "    \"melee_push\": \"" + packid + "melee_stock/melee_stock_02\",\n" +
+                                        "    \"melee_stock\": \"" + packid + "melee_stock/melee_stock_03\"\n" +
+                                        "  },\n" +
+                                        "  \"offhand_show\": {\n" +
+                                        "    \"pos\": [-2, 20, 4],\n" +
+                                        "    \"rotate\": [0, 0, 45],\n" +
+                                        "    \"scale\": [0.5, 0.5, 0.5]\n" +
+                                        "  },\n" +
+                                        "  \"hotbar_show\": {\n" +
+                                        "    \"0\": {\n" +
+                                        "      \"pos\": [-4, 26, 3],\n" +
+                                        "      \"rotate\": [-90, -5, -90],\n" +
+                                        "      \"scale\": [0.5, 0.5, 0.5]\n" +
+                                        "    }\n" +
+                                        "  }\n" +
+                                        "}");
+                                break;
                             default:
                                 JOptionPane.showMessageDialog(null, "That is not a template!");
                                 createguns();
