@@ -1,5 +1,7 @@
 package com.corrinedev.contenttoolsgui;
 
+import javafx.stage.DirectoryChooser;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,11 +9,13 @@ import java.nio.file.Path;
 
 public class GunCreator {
 
-    String directory = JOptionPane.showInputDialog(null,"Input the directory of the content pack folder (Example: C:/Users/-----/Syncable");
-    String packid = JOptionPane.showInputDialog(null,"Input the id of the content pack (Example: tp for TestPack");
 
     public void createguns () {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
 
+        String packid = JOptionPane.showInputDialog(null, "Input the id of the content pack (Example: tp for TestPack");
+
+        String directory = String.valueOf(directoryChooser.showDialog(null));
 
         String nameinput = "empty";
 

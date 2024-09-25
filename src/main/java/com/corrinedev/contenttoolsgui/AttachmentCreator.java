@@ -1,5 +1,7 @@
 package com.corrinedev.contenttoolsgui;
 
+import javafx.stage.DirectoryChooser;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,11 +9,13 @@ import java.nio.file.Path;
 
 public class AttachmentCreator {
 
-    String directory = JOptionPane.showInputDialog(null,"Input the directory of your content pack, include the id folder");
-    String packid = JOptionPane.showInputDialog(null,"Input the packid of your content pack, (example: TestPack would be tp)");
 
     public void createAttachments () {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
 
+        String packid = JOptionPane.showInputDialog(null, "Input the id of the content pack (Example: tp for TestPack");
+
+        String directory = String.valueOf(directoryChooser.showDialog(null));
 
         String nameinput = "empty";
 
