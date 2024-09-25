@@ -34,8 +34,8 @@ public class AttachmentCreator {
                             case "muzzle":
                                     Files.createFile(Path.of(directory + "/attachments/index/" + nameinput + ".json"));
                                     Files.writeString(Path.of(directory + "/attachments/index/" + nameinput + ".json"), "{\n" +
-                                            "  \"name\": \"tacz.attachment."+ nameinput +".name\",\n" +
-                                            "  \"display\": \"tacz:"+ nameinput +"_display\",\n" +
+                                            "  \"name\": \""+ packid +".attachment."+ nameinput +".name\",\n" +
+                                            "  \"display\": \""+ packid +":"+ nameinput +"_display\",\n" +
                                             "  \"data\": \"" + packid + ":"+ nameinput +"_data\",\n" +
                                             "  \"type\": \"muzzle\"\n" +
                                             "}");
@@ -67,8 +67,8 @@ public class AttachmentCreator {
                             case "suppressor":
                                 Files.createFile(Path.of(directory + "/attachments/index/" + nameinput + ".json"));
                                 Files.writeString(Path.of(directory + "/attachments/index/" + nameinput + ".json"), "{\n" +
-                                        "  \"name\": \"tacz.attachment."+ nameinput +".name\",\n" +
-                                        "  \"display\": \"tacz:"+ nameinput +"_display\",\n" +
+                                        "  \"name\": \"" + packid +".attachment."+ nameinput +".name\",\n" +
+                                        "  \"display\": \"" + packid +":"+ nameinput +"_display\",\n" +
                                         "  \"data\": \"" + packid + ":"+ nameinput +"_data\",\n" +
                                         "  \"type\": \"muzzle\"\n" +
                                         "}");
@@ -102,8 +102,8 @@ public class AttachmentCreator {
                             case "grip":
                                 Files.createFile(Path.of(directory + "/attachments/index/" + nameinput + ".json"));
                                 Files.writeString(Path.of(directory + "/attachments/index/" + nameinput + ".json"), "{\n" +
-                                        "  \"name\": \"tacz.attachment."+ nameinput +".name\",\n" +
-                                        "  \"display\": \"tacz:"+ nameinput +"_display\",\n" +
+                                        "  \"name\": \""+ packid +".attachment."+ nameinput +".name\",\n" +
+                                        "  \"display\": \""+ packid +":"+ nameinput +"_display\",\n" +
                                         "  \"data\": \"" + packid + ":"+ nameinput +"_data\",\n" +
                                         "  \"type\": \"grip\"\n" +
                                         "}");
@@ -135,8 +135,8 @@ public class AttachmentCreator {
                             case "stock":
                                 Files.createFile(Path.of(directory + "/attachments/index/" + nameinput + ".json"));
                                 Files.writeString(Path.of(directory + "/attachments/index/" + nameinput + ".json"), "{\n" +
-                                        "  \"name\": \"tacz.attachment."+ nameinput +".name\",\n" +
-                                        "  \"display\": \"tacz:"+ nameinput +"_display\",\n" +
+                                        "  \"name\": \""+ packid +".attachment."+ nameinput +".name\",\n" +
+                                        "  \"display\": \"" + packid +":"+ nameinput +"_display\",\n" +
                                         "  \"data\": \"" + packid + ":"+ nameinput +"_data\",\n" +
                                         "  \"type\": \"stock\"\n" +
                                         "}");
@@ -182,8 +182,8 @@ public class AttachmentCreator {
                             case "scope":
                                 Files.createFile(Path.of(directory + "/attachments/index/" + nameinput + ".json"));
                                 Files.writeString(Path.of(directory + "/attachments/index/" + nameinput + ".json"), "{\n" +
-                                        "  \"name\": \"tacz.attachment."+ nameinput +".name\",\n" +
-                                        "  \"display\": \"tacz:"+ nameinput +"_display\",\n" +
+                                        "  \"name\": \""+ packid +".attachment."+ nameinput +".name\",\n" +
+                                        "  \"display\": \""+ packid +":"+ nameinput +"_display\",\n" +
                                         "  \"data\": \"" + packid + ":"+ nameinput +"_data\",\n" +
                                         "  \"type\": \"scope\"\n" +
                                         "}");
@@ -219,8 +219,8 @@ public class AttachmentCreator {
                             case "extended_mag":
                                 Files.createFile(Path.of(directory + "/attachments/index/" + nameinput + ".json"));
                                 Files.writeString(Path.of(directory + "/attachments/index/" + nameinput + ".json"), "{\n" +
-                                        "  \"name\": \"tacz.attachment."+ nameinput +".name\",\n" +
-                                        "  \"display\": \"tacz:"+ nameinput +"_display\",\n" +
+                                        "  \"name\": \""+ packid +".attachment."+ nameinput +".name\",\n" +
+                                        "  \"display\": \""+ packid +":"+ nameinput +"_display\",\n" +
                                         "  \"data\": \"" + packid + ":"+ nameinput +"_data\",\n" +
                                         "  \"type\": \"extended_mag\"\n" +
                                         "}");
